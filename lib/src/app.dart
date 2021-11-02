@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:counter/src/views/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Center(
-        child: Text('Hola mundo'),
+        child: HomePage(),
       ),
     );
   }
