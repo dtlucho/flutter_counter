@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final TextStyle textStyle = const TextStyle(fontSize: 25.0);
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +10,20 @@ class HomePage extends StatelessWidget {
         title: const Text('Counter'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text('Hello world'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Number of clicks:',
+              style: textStyle,
+            ),
+            Text(
+              '0',
+              style: textStyle,
+            ),
+          ],
+        ),
       ),
     );
   }
