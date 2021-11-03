@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   final TextStyle textStyle = const TextStyle(fontSize: 25.0);
 
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +26,12 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          print('Add to counter');
+        },
       ),
     );
   }
