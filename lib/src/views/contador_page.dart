@@ -33,34 +33,46 @@ class _CounterPageState extends State<CounterPage> {
           ],
         ),
       ),
-      floatingActionButton: _crearBotones(),
+      floatingActionButton: _createButtons(),
     );
   }
 
-  Widget _crearBotones() {
+  Widget _createButtons() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      children: const [
-        SizedBox(
+      children: [
+        const SizedBox(
           width: 30.0,
         ),
         FloatingActionButton(
-          child: Icon(Icons.exposure_zero),
-          onPressed: null,
+          child: const Icon(Icons.exposure_zero),
+          onPressed: _reset,
         ),
-        Expanded(child: SizedBox()),
+        const Expanded(child: SizedBox()),
         FloatingActionButton(
-          child: Icon(Icons.remove),
-          onPressed: null,
+          child: const Icon(Icons.remove),
+          onPressed: _substract,
         ),
-        SizedBox(
+        const SizedBox(
           width: 5.0,
         ),
         FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: null,
+          child: const Icon(Icons.add),
+          onPressed: _add,
         ),
       ],
     );
+  }
+
+  void _add() {
+    setState(() => _count++);
+  }
+
+  void _substract() {
+    setState(() => _count--);
+  }
+
+  void _reset() {
+    setState(() => _count = 0);
   }
 }
