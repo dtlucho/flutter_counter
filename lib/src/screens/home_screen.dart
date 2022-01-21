@@ -1,36 +1,31 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  final TextStyle textStyle = const TextStyle(fontSize: 25.0);
-
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    const TextStyle style = TextStyle(fontSize: 30);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter'),
+        title: const Text("Counter"),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Number of clicks:',
-              style: textStyle,
-            ),
-            Text(
-              '0',
-              style: textStyle,
-            ),
+          children: const <Widget>[
+            Text("Clicks counter", style: style),
+            Text("0", style: style),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          print('Add to counter');
+          print("Add to counter");
         },
       ),
     );
