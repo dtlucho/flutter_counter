@@ -10,7 +10,6 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Counter"),
-        centerTitle: true,
         elevation: 0.0,
       ),
       body: Center(
@@ -18,14 +17,14 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             Text("Clicks counter", style: style),
-            Text("0", style: style),
+            Text("10", style: style),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          print("Add to counter");
+          print('Add to counter');
         },
       ),
     );

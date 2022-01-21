@@ -8,36 +8,38 @@ class CounterScreen extends StatefulWidget {
 }
 
 class _CounterScreenState extends State<CounterScreen> {
-  int _counter = 0;
+  int counter = 0;
 
   void increase() {
-    setState(() => _counter++);
+    counter++;
+    setState(() {});
   }
 
   void decrease() {
-    setState(() => _counter--);
+    counter--;
+    setState(() {});
   }
 
   void reset() {
-    setState(() => _counter = 0);
+    counter = 0;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle _style = TextStyle(fontSize: 30);
+    const TextStyle style = TextStyle(fontSize: 30);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("Counter"),
-        centerTitle: true,
         elevation: 0.0,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text("Clicks counter", style: _style),
-            Text("$_counter", style: _style),
+            const Text("Clicks counter", style: style),
+            Text("$counter", style: style),
           ],
         ),
       ),
@@ -84,3 +86,5 @@ class CustomFloatingActions extends StatelessWidget {
     );
   }
 }
+
+//() => setState(() => counter--)
