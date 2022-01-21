@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CounterPage extends StatefulWidget {
-  const CounterPage({Key? key}) : super(key: key);
+class CounterScreen extends StatefulWidget {
+  const CounterScreen({Key? key}) : super(key: key);
 
   @override
-  _CounterPageState createState() => _CounterPageState();
+  _CounterScreenState createState() => _CounterScreenState();
 }
 
-class _CounterPageState extends State<CounterPage> {
+class _CounterScreenState extends State<CounterScreen> {
   final TextStyle _textStyle = const TextStyle(fontSize: 25.0);
   int _count = 0;
 

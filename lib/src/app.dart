@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:counter/src/views/contador_page.dart';
+import 'package:flutter_counter/src/screens/contador_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Center(
-        child: CounterPage(),
+        child: CounterScreen(),
       ),
     );
   }
