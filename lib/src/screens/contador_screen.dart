@@ -4,75 +4,83 @@ class CounterScreen extends StatefulWidget {
   const CounterScreen({Key? key}) : super(key: key);
 
   @override
-  _CounterScreenState createState() => _CounterScreenState();
+  State<CounterScreen> createState() => _CounterScreenState();
 }
 
 class _CounterScreenState extends State<CounterScreen> {
-  final TextStyle _textStyle = const TextStyle(fontSize: 25.0);
-  int _count = 0;
+  int _counter = 0;
+
+  void increase() {
+    setState(() => _counter++);
+  }
+
+  void decrease() {
+    setState(() => _counter--);
+  }
+
+  void reset() {
+    setState(() => _counter = 0);
+  }
 
   @override
   Widget build(BuildContext context) {
+    const TextStyle _style = TextStyle(fontSize: 30);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter'),
+        title: const Text("Counter"),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Number of clicks:',
-              style: _textStyle,
-            ),
-            Text(
-              '$_count',
-              style: _textStyle,
-            ),
+            const Text("Clicks counter", style: _style),
+            Text("$_counter", style: _style),
           ],
         ),
       ),
-      floatingActionButton: _createButtons(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CustomFloatingActions(
+        increaseFunction: increase,
+        decreaseFunction: decrease,
+        resetFunction: reset,
+      ),
     );
   }
+}
 
-  Widget _createButtons() {
+class CustomFloatingActions extends StatelessWidget {
+  const CustomFloatingActions({
+    Key? key,
+    required this.increaseFunction,
+    required this.decreaseFunction,
+    required this.resetFunction,
+  }) : super(key: key);
+
+  final Function increaseFunction;
+  final Function decreaseFunction;
+  final Function resetFunction;
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        const SizedBox(
-          width: 30.0,
+        FloatingActionButton(
+          child: const Icon(Icons.exposure_minus_1_outlined),
+          onPressed: () => decreaseFunction(),
         ),
         FloatingActionButton(
-          child: const Icon(Icons.exposure_zero),
-          onPressed: _reset,
-        ),
-        const Expanded(child: SizedBox()),
-        FloatingActionButton(
-          child: const Icon(Icons.remove),
-          onPressed: _substract,
-        ),
-        const SizedBox(
-          width: 5.0,
+          child: const Icon(Icons.exposure_outlined),
+          onPressed: () => resetFunction(),
         ),
         FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: _add,
+          child: const Icon(Icons.exposure_plus_1_outlined),
+          onPressed: () => increaseFunction(),
         ),
       ],
     );
-  }
-
-  void _add() {
-    setState(() => _count++);
-  }
-
-  void _substract() {
-    setState(() => _count--);
-  }
-
-  void _reset() {
-    setState(() => _count = 0);
   }
 }
